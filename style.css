@@ -1,0 +1,11 @@
+h1,
+p {
+  font-family: Lato;
+}
+.ellip {
+  display: block;
+  white-space: nowrap;
+  /*width: 100px;*/
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
