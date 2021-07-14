@@ -148,7 +148,9 @@ const Test = props => {
   ];
   return (
     <div className="App">
-      <h2>单元格自动适应表格的宽度，需要给 clumn设置 ellipsis属性</h2>
+      <h2>
+        大部分情况适用，单元格自动适应表格的宽度，需要给 column设置 ellipsis属性
+      </h2>
       <Table columns={columns1} dataSource={listData1} rowKey="id" />
       <h2>单独给单元格设置宽度, 超出这个宽度也会触发 popover-ellipsis</h2>
       <Table columns={columns2} dataSource={listData2} rowKey="id" />
