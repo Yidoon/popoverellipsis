@@ -22,8 +22,7 @@ const Test = props => {
             content={text}
             sfeConfig={{ injectEllipsis: true }}
           >
-            <div>{text}</div>
-            {/* {text} */}
+            {text}
           </PopoverEllipsis>
         );
       }
@@ -78,7 +77,6 @@ const Test = props => {
               injectEllipsis: true
             }}
           >
-            {/* <div></div> */}
             <div className="test123">{text}</div>
           </PopoverEllipsis>
         );
@@ -112,12 +110,53 @@ const Test = props => {
     }
   ];
 
+  const columns3 = [
+    {
+      title: 'Name',
+      dataIndex: 'name',
+      key: 'name',
+      width: 200
+    },
+    {
+      title: 'Desc',
+      dataIndex: 'desc',
+      key: 'desc',
+      ellipsis: true,
+      render: text => {
+        return (
+          <PopoverEllipsis
+            title="测试"
+            content={text}
+            sfeConfig={{
+              injectEllipsis: true
+            }}
+          >
+            <div>{text}</div>
+          </PopoverEllipsis>
+        );
+      }
+    },
+    {
+      title: 'Name',
+      dataIndex: 'id',
+      key: 'id',
+      width: 200,
+      render: () => {
+        return '操作';
+      }
+    }
+  ];
   return (
     <div className="App">
       <h2>单元格自动适应表格的宽度，需要给 clumn设置 ellipsis属性</h2>
       <Table columns={columns1} dataSource={listData1} rowKey="id" />
-      {/* <h2>单独给单元格设置宽度</h2>
-      <Table columns={columns2} dataSource={listData2} rowKey="id" /> */}
+      <h2>单独给单元格设置宽度, 超出这个宽度也会触发 popover-ellipsis</h2>
+      <Table columns={columns2} dataSource={listData2} rowKey="id" />
+      <h2>
+        没有 PopoverEllipsis子元素设置 ellipsis属性的话，可以设置
+        sfeConfig.injectEllipsis = true,将会自动注入 _inject-ellipsis class
+      </h2>
+      <Table columns={columns3} dataSource={listData1} rowKey="id" />
     </div>
   );
 };

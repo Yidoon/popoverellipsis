@@ -59,6 +59,9 @@ const PopoverEllipsis: React.FC<IPopoverEllipsis> = props => {
    * @param child
    */
   const _handleChildren = (child: ReactElement) => {
+    if (!React.isValidElement(child)) {
+      child = <>{child}</>;
+    }
     const classNames = `${
       isPopover ? 'popover-ellipsis-text-active' : ''
     } popover-ellipsis-text`;
